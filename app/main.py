@@ -22,4 +22,5 @@ def edit_product(product_id: int, product: ProductCreate):
 @app.delete("/products/{product_id}")
 def remove_product(product_id: int):
     delete_product(product_id)
+
     return {"message": "Product deleted successfully"}
