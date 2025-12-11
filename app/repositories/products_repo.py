@@ -13,7 +13,7 @@ def fetch_products() -> list[dict]:
     ORDER BY p."Product name";
     """
     rows = execute_query(sql).mappings().all()
-    print("DEBUG:", rows[0])   # ← вот сюда
+    print("DEBUG:", rows[0])   
     return rows
 
 
@@ -55,4 +55,5 @@ def delete_product(product_id: int):
     WHERE id = :id;
     """
     execute_query(sql, {"id": product_id})
+
 
