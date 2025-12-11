@@ -6,10 +6,12 @@ def list_products_with_time() -> list[ProductItem]:
     rows = fetch_products()
     result: list[ProductItem] = []
     for r in rows:
+        print("DEBUG ROW:", r) 
         total_time = fetch_product_time_sum(r["product_name"])
         manufacturing_time = max(0, ceil(total_time))
         result.append(
             ProductItem(
+                id=r["id"],  
                 product_type=r["product_type"],
                 product_name=r["product_name"],
                 article=r["article"],
@@ -19,3 +21,4 @@ def list_products_with_time() -> list[ProductItem]:
             )
         )
     return result
+
