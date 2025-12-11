@@ -1,8 +1,9 @@
 from app.db import execute_query
 
-def fetch_products():
+def fetch_products() -> list[dict]:
     sql = """
     SELECT
+      p."id" AS id,
       p."Product type" AS product_type,
       p."Product name" AS product_name,
       p."Article" AS article,
@@ -11,7 +12,10 @@ def fetch_products():
     FROM public."Products_import" AS p
     ORDER BY p."Product name";
     """
-    return execute_query(sql).mappings().all()
+    rows = execute_query(sql).mappings().all()
+    print("DEBUG:", rows[0])   # ← вот сюда
+    return rows
+
 
 def fetch_product_time_sum(product_name: str) -> float:
     sql = """
