@@ -6,16 +6,54 @@
 
 ```
 project_root/
-├─ app/                    
-│  ├─ frontend/            # Flask‑фронтенд (app.py, templates/, static/)
-│  ├─ repositories/        # SQL‑запросы к таблицам
-│  ├─ schemas/             # Pydantic‑схемы
-│  ├─ services/            # Бизнес‑логика
+├─ app/
+│  ├─ frontend/            # Фронтенд на Flask
+│  │  ├─ app.py            # Основной файл Flask, маршруты и вызовы API
+│  │  ├─ templates/        # Jinja2-шаблоны
+│  │  │  ├─ base.html              # Общий каркас (хедер, сайдбар, футер)
+│  │  │  ├─ products.html          # Таблица продукции
+│  │  │  ├─ product_form.html      # Форма добавления/редактирования продукции
+│  │  │  ├─ workshops.html         # Общий список цехов
+│  │  │  ├─ product_workshops.html # Цеха конкретного продукта
+│  │  │  └─ calculation.html       # Калькулятор сырья
+│  │  └─ static/           # Статические файлы (логотип, иконка, стили)
+│  │     ├─ logo.png
+│  │     └─ logo.ico
+│  │
+│  ├─ repositories/        # SQL-запросы к таблицам
+│  │  ├─ products_repo.py
+│  │  ├─ product_types_repo.py
+│  │  ├─ material_types_repo.py
+│  │  └─ workshops_repo.py
+│  │
+│  ├─ schemas/             # Pydantic-схемы
+│  │  ├─ product.py
+│  │  ├─ product_type.py
+│  │  ├─ material_type.py
+│  │  ├─ workshop.py
+│  │  └─ calc.py
+│  │
+│  ├─ services/            # Бизнес-логика
+│  │  ├─ product_service.py
+│  │  ├─ product_types_service.py
+│  │  ├─ material_types_service.py
+│  │  ├─ workshops_service.py
+│  │  └─ calc_service.py
+│  │
+│  ├─ отчеты/              # Документы по заданиям
+│  │  ├─ отчет1.docx       # Отчёт по первому заданию
+│  │  ├─ отчет2.docx       # Отчёт по второму заданию
+│  │  ├─ отчет3.docx       # Отчёт по третьему заданию
+│  │  ├─ отчет4.docx       # Отчёт по четвёртому заданию
+│  │  └─ ERpgerd.pdf       # ER-диаграмма базы данных
+│  │
 │  ├─ .env                 # Конфигурация подключения к БД
 │  ├─ config.py            # Загрузка настроек из .env
 │  ├─ db.py                # Подключение к PostgreSQL, execute_query()
-│  └─ main.py              # FastAPI‑эндпоинты
-└─ requirements.txt
+│  └─ main.py              # FastAPI-эндпоинты
+│
+└─ requirements.txt        # Зависимости проекта
+
 ```
 
 ## ⚙️ Установка
