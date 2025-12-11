@@ -3,7 +3,7 @@
 ## 📂 Структура проекта
 
 ```
-project_root/
+Practice1/
 ├─ app/                    
 │  ├─ frontend/            # Фронтенд на Flask
 │  │  ├─ app.py            # Основной файл Flask, маршруты и вызовы API
